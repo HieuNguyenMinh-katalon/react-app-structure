@@ -14,9 +14,9 @@ on:
 
 jobs:
   build-and-deploy:
-    environment: ${{ inputs.target_env }}
     runs-on: ubuntu-latest
-
+    environment: ${{ inputs.target_env }}
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
