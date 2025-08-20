@@ -1,13 +1,20 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-    - main
+  workflow_dispatch:
+    inputs:
+      target_env:
+        description: "Select environment"
+        required: true
+        type: choice
+        options:
+          - qa
+          - staging
+          - prod
 
 jobs:
   build-and-deploy:
-    environment: qa
+    environment: ${{ inputs.target_env }}
     runs-on: ubuntu-latest
 
     steps:
